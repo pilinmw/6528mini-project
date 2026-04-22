@@ -1,0 +1,144 @@
+\documentclass[12pt]{article}
+\PassOptionsToPackage{numbers, compress}{natbib}
+\usepackage[preprint]{neurips_2023_mod}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colors
+\usepackage{graphicx}
+% \usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\usepackage[capitalize,noabbrev]{cleveref}
+\usepackage{blindtext}
+\pagestyle{myheadings}
+
+\usepackage[font=small]{caption}
+\usepackage[font=small,labelformat=simple]{subcaption}
+\renewcommand{\thesubfigure}{(\alph{subfigure})} % Use parentheses around all subrefs
+
+% Add a period to the end of an abbreviation unless there's one already, then \xspace.
+\usepackage{xspace}
+\makeatletter
+\DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+\def\@onedot{\ifx\@let@token.\else.\null\fi\xspace}
+\def\wrt{w.r.t\onedot} \def\dof{d.o.f\onedot}
+\def\iid{i.i.d\onedot} \def\wolog{w.l.o.g\onedot}
+\def\eg{e.g\onedot} \def\Eg{E.g\onedot}
+\def\ie{i.e\onedot} \def\Ie{I.e\onedot}
+\def\cf{cf\onedot} \def\Cf{Cf\onedot}
+\def\etc{etc\onedot} \def\vs{vs\onedot}
+\def\etal{et al\onedot}
+\makeatother
+
+\graphicspath{{figures}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% UPDATE THESE FIELDS
+\newcommand{\StudentName}{YOUR NAME}
+\newcommand{\StudentUID}{YOUR UID}
+\newcommand{\CourseCode}{COMP/ENGN 4528/6528}
+\newcommand{\CourseName}{Computer Vision}
+
+% LEAVE THIS ONE AS IS
+\markright{\CourseCode{} \CourseName{}\hfill \StudentName{} \StudentUID{}\hfill}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{YOUR TITLE GOES HERE}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Problem Definition}
+\label{sec:problem_definition}
+
+\blindtext[1] % REPLACE WITH YOUR TEXT
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Related Work [Postgraduate-Only]}
+\label{sec:related_work}
+
+An example citation~\cite{mildenhall2020nerf}, or in-line if \citet{mildenhall2020nerf} are part of the sentence.
+%
+\blindtext[1] % REPLACE WITH YOUR TEXT
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Method}
+\label{sec:method}
+
+\blindtext[1] % REPLACE WITH YOUR TEXT
+
+\blindtext[1] % REPLACE WITH YOUR TEXT
+
+\blindtext[1] % REPLACE WITH YOUR TEXT
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+\label{sec:results}
+
+Refer to your figures and tables like this, see \cref{fig:label_here} and \cref{tab:label_here}.
+\blindtext[1] % REPLACE WITH YOUR TEXT
+
+\blindtext[1] % REPLACE WITH YOUR TEXT
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Reflection}
+\label{sec:reflection}
+
+\blindtext[1] % REPLACE WITH YOUR TEXT
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion}
+\label{sec:conclusion}
+
+\blindtext[1] % REPLACE WITH YOUR TEXT
+
+\newpage
+% additional pages containing only figures with captions and a reference list are allowed after the two pages
+
+\begin{table}[!t]
+\centering
+\caption{EXAMPLE TABLE. PLEASE DO NOT INCLUDE IN YOUR REPORT. Detailed and self-contained table caption. Tell me what the metrics are, and if there are any nuances regarding the experimental setup that might have implications for the results. Bold denotes best performance.}
+\label{tab:label_here}
+%\renewcommand*{\arraystretch}{1.1} % Use/adjust if desired
+%\setlength{\tabcolsep}{2pt} % Adjust horizontal padding if required
+\begin{tabularx}{\linewidth}{lCCC}
+\toprule
+Method & Metric A $\downarrow$ & Metric B $\uparrow$ & Metric C $\uparrow$\\
+\midrule
+Baseline & 0.2 & 0.4 & 0.1\\
+Method A & 0.2 & 0.3 & 0.1\\
+Method B & \textbf{0.1} & 0.5 & 0.2\\
+Ours & \textbf{0.1} & \textbf{0.6} & \textbf{0.7}\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\linewidth, trim=0pt 182pt 0pt 25pt, clip]{jcsmr.jpg}
+\caption{EXAMPLE FIGURE. PLEASE DO NOT INCLUDE IN YOUR REPORT. Detailed and self-contained figure caption. Prefer situating figures and tables at the top of the second and/or third pages.}
+\label{fig:label_here}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{
+\small
+\bibliographystyle{ieeenat_fullname}
+\bibliography{refs}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}

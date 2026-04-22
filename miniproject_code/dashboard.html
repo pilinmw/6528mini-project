@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-Project Results Dashboard</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --accent: #38bdf8;
+            --accent-low: rgba(56, 189, 248, 0.1);
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--accent);
+            text-shadow: 0 0 20px var(--accent-low);
+        }
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .card {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.25rem;
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent-low);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .image-container {
+            width: 100%;
+            height: 300px;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .metrics {
+            margin-top: 15px;
+            font-family: monospace;
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 8px;
+            color: #10b981;
+        }
+        .description {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #94a3b8;
+        }
+        .full-width {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Coordinate Network Results</h1>
+    <div class="container">
+        <!-- Baseline Card -->
+        <div class="card">
+            <h2>Baseline: No Positional Encoding</h2>
+            <div class="image-container">
+                <img src="results/baseline_no_pe_final.png" alt="Baseline Result">
+            </div>
+            <div class="metrics">PSNR: 20.94 dB</div>
+            <p class="description">
+                WITHOUT Positional Encoding, the network suffers from <b>Spectral Bias</b>. 
+                It can only capture low-frequency information, resulting in a blurry reconstruction.
+            </p>
+            <img src="results/baseline_no_pe_loss.png" style="width: 100%; margin-top: 10px; border-radius: 8px;">
+        </div>
+
+        <!-- Main Model Card -->
+        <div class="card">
+            <h2>Proposed: With Positional Encoding</h2>
+            <div class="image-container">
+                <img src="results/main_with_pe_final.png" alt="PE Result">
+            </div>
+            <div class="metrics">PSNR: 27.58 dB</div>
+            <p class="description">
+                WITH Positional Encoding (Fourier features), we map inputs to higher dimensions. 
+                This allows the Simple MLP to learn <b>high-frequency details</b> like sharp edges and textures.
+            </p>
+            <img src="results/main_with_pe_loss.png" style="width: 100%; margin-top: 10px; border-radius: 8px;">
+        </div>
+
+        <div class="card full-width">
+            <h2>Project Conclusion</h2>
+            <p class="description" style="color: #cbd5e1; font-size: 1.1rem;">
+                The results clearly demonstrate that for Implicit Neural Representations, the architecture's ability to process high-frequency signals is key. 
+                Our "Ours" model outperforms the baseline by <b>~6.6 dB</b>, making it a viable candidate for neural image compression.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
